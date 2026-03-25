@@ -1,0 +1,40 @@
+class Student {
+    String name;
+    int id;
+    String dept;
+
+    Student(String name, int id, String dept){
+        this.name = name;
+        this.id = id;
+        this.dept = dept;
+    }
+    void display(){
+        System.out.println("Name: "+name);
+        System.out.println("Id: "+id);
+        System.out.println("Dept: "+dept);
+    }
+    
+    void show(){
+      System.out.println("I'm from Chennai");
+    }
+}
+class faculty extends Student{
+    faculty(String name, int id, String dept){
+        super(name, id, dept);
+    }
+    void display2(){
+        System.out.println("Technical Trainer");
+    }
+    void printdata(){
+      super.show();
+    }
+}
+public class SingleInheritance{
+    public static void main(String[] args){
+        faculty f1 = new faculty("Ram", 98, "Mech");
+        f1.display();
+        f1.display2();
+        f1.show();
+        f1.printdata();
+    }
+}
