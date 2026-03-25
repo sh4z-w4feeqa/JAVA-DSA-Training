@@ -1,4 +1,4 @@
-# JAVA-DSA-Training
+# ADVANCED JAVA DSA
 
 **Inheritance**
 
