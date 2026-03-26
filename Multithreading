@@ -1,0 +1,40 @@
+class data extends Thread
+{
+    public void run()
+    {
+        for(int i = 1; i<=5; i++){
+            char ch = (char)(96+i);
+            System.out.println(ch);
+            try
+            {
+                Thread.sleep(2000);
+            } catch(InterruptedException e){};
+        }
+    }
+}
+class natural extends Thread
+{
+    public void run()
+    {
+        for(int i = 1; i<=5; i++)
+        {
+            System.out.println(i);
+            try
+            {
+                Thread.sleep(2000);
+            } catch(InterruptedException e){};
+            
+        }
+    }
+}
+public class Main{
+    public static void main(String args[]) throws InterruptedException{
+        data d1 = new data();
+        natural n1 = new natural();
+        d1.start();
+        n1.start();
+        d1.join();
+        n1.join();
+        System.out.println("End of Statement");
+    }
+}
