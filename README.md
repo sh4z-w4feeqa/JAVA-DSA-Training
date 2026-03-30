@@ -18,7 +18,7 @@
 
 **Two Pointer Techniques**
 
-*Opposite Directions*
+*Opposite Direction*
 
 * Pair Sum
   
