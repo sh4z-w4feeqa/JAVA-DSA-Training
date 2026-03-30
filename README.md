@@ -1,6 +1,6 @@
 # ADVANCED JAVA DSA
 
-1. **Inheritance**
+**Inheritance**
 
 * Single Inheritance
   
@@ -8,15 +8,15 @@
   
 * Hierarchical Inheritance
 
-2. **Abstraction**
+**Abstraction**
 
-3. **Encapsulation**
+**Encapsulation**
 
-4. **Multithreading**
+**Multithreading**
 
-5. **Runnable Interface**
+**Runnable Interface**
 
-6. **Two Pointer Techniques**
+**Two Pointer Techniques**
 
 *Opposite Direction*
 
