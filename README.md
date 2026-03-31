@@ -44,6 +44,6 @@
 
 * Length of longest subarray without repeating characters
   
-* 
+* Naive Algorithm (Text - Pattern)
 
 
