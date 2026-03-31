@@ -37,4 +37,6 @@
 **Sliding Window**
 
 * Maximum sum of subarray size k
+  
+* Longest subarray sum
 
