@@ -1,0 +1,41 @@
+import java.util.*;
+class Node{
+  int data;
+  Node next;
+  Node(int data){
+    this.data = data;
+    this.next = null;
+  }
+}
+class Singly{
+  Node head, tail;
+  Singly(){
+    head = null;
+    tail = null;
+  }
+  void create(int num){
+    Node newNode = new Node(num);
+    newNode.next = head;
+    head = newNode;
+  }
+    void display(){
+      Node itr = head;
+      while(itr!=null){
+        System.out.print(itr.data+" ");
+        itr = itr.next;
+      }
+    }
+}
+public class Main{
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    Singly s = new Singly();
+    int n = scn.nextInt();
+    int num;
+    for(int i = 0; i<n; i++){
+      num = scn.nextInt();
+      s.create(num);
+    }
+    s.display();
+  }
+}
