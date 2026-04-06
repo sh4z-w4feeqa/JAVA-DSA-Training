@@ -86,3 +86,7 @@
 * Factorial
 
 * Print 1 to n
+
+**LINKED LIST**
+
+* Singly linked list
