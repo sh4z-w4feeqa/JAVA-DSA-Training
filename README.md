@@ -90,3 +90,5 @@
 **LINKED LIST**
 
 * Singly linked list
+
+* Doubly Linked List
