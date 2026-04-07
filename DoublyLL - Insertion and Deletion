@@ -1,0 +1,102 @@
+import java.util.*;
+class Node{
+  int data;
+  Node next;
+  Node prev;
+  Node(int data){
+    this.data = data;
+    this.next = null;
+    this.prev = null;
+  }
+}
+class Doubly{
+  Node head, tail;
+  Doubly(){
+    head = null;
+    tail = null;
+  }
+   void create(int num){
+    Node newNode = new Node(num);
+    if(head == null){
+      head = newNode;
+      tail = newNode;
+    }
+    else{
+      newNode.next = head;
+      head.prev = newNode;
+      head = newNode;
+    }
+  }
+  void insert(int val, int pos, int n){
+    Node newNode = new Node(val);
+    if(pos  == 1){
+      newNode.next = head;
+      head.prev = newNode;
+      head = newNode;
+    } else if(pos == n-1){
+      tail.next = newNode;
+      newNode.prev = tail;
+      tail = newNode;
+    } else{
+      Node itr= head;
+      int count = 0;
+      while(itr!=null){
+        count++;
+        if(count == pos - 1){
+          newNode.next = itr.next;
+          itr.next.prev = newNode;
+          itr.next = newNode;
+          newNode.prev = itr;
+          break;
+        }
+        itr = itr.next;
+      }
+    }
+  }
+  void delete(int pos, int n){
+    if(pos == 1){
+      head = head.next;
+      head.prev = null;
+    } else if(pos == n){
+      tail = tail.prev;
+      tail.next = null;
+    } else{
+      Node itr = head;
+      int count = 0;
+      while(itr!=null){
+        count++;
+        if(count == pos){
+          itr.next.prev = itr.prev;
+          itr.prev.next = itr.next;
+          break;
+        }
+        itr = itr.next;
+      }
+    }
+  }
+  void display(){
+    Node itr = head;
+    while(itr!=null){
+      System.out.println(itr.prev+" "+itr.data+" "+itr.next);
+      itr = itr.next;
+    }
+  }
+}
+public class Main{
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    Doubly s = new Doubly();
+    int n = scn.nextInt();
+    int num;
+    for(int i = 0; i<n; i++){
+      num = scn.nextInt();
+      s.create(num);
+    }
+    int val = scn.nextInt();
+    int pos = scn.nextInt();
+    s.insert(val, pos, n);
+    s.display();
+    s.delete(pos, n);
+    s.display();
+  }
+}
