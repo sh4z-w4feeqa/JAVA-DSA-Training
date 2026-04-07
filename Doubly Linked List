@@ -1,0 +1,51 @@
+import java.util.*;
+class Node{
+  int data;
+  Node next;
+  Node prev;
+  Node(int data){
+    this.data = data;
+    this.next = null;
+    this.prev = null;
+  }
+}
+class Doubly{
+  Node head, tail;
+  Doubly(){
+    head = null;
+    tail = null;
+  }
+   void create(int num){
+    Node newNode = new Node(num);
+    if(head == null){
+      head = newNode;
+      tail = newNode;
+    }
+    else{
+      tail.next = newNode;
+      newNode.prev = tail;
+      tail = newNode;
+    }
+  }
+  void display(){
+    Node itr = head;
+    while(itr!=null){
+      System.out.println(itr.prev+" "+itr.data+" "+itr.next);
+      itr = itr.next;
+    }
+  }
+}
+
+public class Main{
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    Doubly s = new Doubly();
+    int n = scn.nextInt();
+    int num;
+    for(int i = 0; i<n; i++){
+      num = scn.nextInt();
+      s.create(num);
+    }
+    s.display();
+  }
+}
