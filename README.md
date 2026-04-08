@@ -92,3 +92,17 @@
 * Singly linked list
 
 * Doubly Linked List
+
+* Circular Linked List (single and double)
+
+**STACK**
+*Operations* 
+* Push
+* Pop
+* Peek
+
+*Applications* 
+* Balanced Parantheses
+* Expression Conversion (Infix, Postfix, Prefix)
+* Expression Evaluation
+* String Reversal
