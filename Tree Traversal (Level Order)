@@ -1,0 +1,48 @@
+import java.util.*;
+class Node{
+  int data;
+  Node left, right;
+  Node(int data){
+    this.data = data;
+    this.left = null;
+    this.right = right;
+}}
+public class Main{
+  static Node buildTree(Scanner scn){
+    int val = scn.nextInt();
+    if(val==-1) return null;
+    Node root = new Node(val);
+    Queue<Node> q = new LinkedList<>();
+    q.add(root);
+    while(!q.isEmpty()){
+      Node temp = q.poll();
+      int leftval = scn.nextInt();
+      if(leftval!=-1){
+        temp.left = new Node(leftval);
+        q.add(temp.left);
+      }
+      int rightval = scn.nextInt();
+      if(rightval!=-1){
+        temp.right = new Node(rightval);
+        q.add(temp.right);
+      }
+    }
+    return root;
+  }
+  static void levelorder(Node root){
+    if(root==null) return;
+    Queue<Node> q = new LinkedList<>();
+    q.add(root);
+    while(!q.isEmpty()){
+      Node temp = q.poll();
+      System.out.print(temp.data+" ");
+      if(temp.left!=null) q.add(temp.left);
+      if(temp.right!=null) q.add(temp.right);
+    }
+  }
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    Node root = buildTree(scn);
+    levelorder(root);
+    System.out.println();
+}}
