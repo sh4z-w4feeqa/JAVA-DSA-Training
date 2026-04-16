@@ -98,3 +98,8 @@
 * Preorder Traversal
 * Postorder Traversal
 * Levelorder Traversal
+
+**BINARY SEARCH TREE (BST)**
+
+* Traversals
+* Find Minimum and Maximum Element 
