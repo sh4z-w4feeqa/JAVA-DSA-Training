@@ -1,0 +1,58 @@
+import java.util.*;
+
+class Node{
+    int data;
+    Node left;
+    Node right;
+    Node(int data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+    }
+}
+
+public class Main{
+    static Node buildtree(Scanner sc){
+        int val=sc.nextInt();
+        if(val==-1)
+            return null;
+        Node root=new Node(val);
+        Queue<Node> q=new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty()){
+            Node temp=q.poll();
+            int leftval=sc.nextInt();
+            if(leftval!=-1){
+                temp.left=new Node(leftval);
+                q.add(temp.left);
+            }
+            int rightval=sc.nextInt();
+            if(rightval!=-1){
+                temp.right=new Node(rightval);
+                q.add(temp.right);
+            }
+        }
+        return root;
+    }
+    static int heightnode(Node root){
+        if(root==null)
+            return 0;
+        int left=heightnode(root.left);
+        int right=heightnode(root.right);
+        return Math.max(left,right)+1;
+    }
+    static int heightedge(Node root){
+        if(root==null)
+            return -1;
+        int left=heightedge(root.left);
+        int right=heightedge(root.right);
+        return Math.max(left,right)+1;
+    }
+    
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		Node root=buildtree(sc);
+		System.out.println(heightnode(root));
+		System.out.println(heightedge(root));
+	}
+}
