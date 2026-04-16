@@ -1,0 +1,48 @@
+import java.util.*;
+class Node{
+  int data;
+  Node left, right;
+  Node(int data){
+    this.data = data;
+    this.left = null;
+    this.right = null;
+}}
+public class bst{
+  Node root = null;
+  Node create(Node root, int val){
+    if(root == null)
+      return new Node(val);
+    if(root.data>val)
+      root.left = create(root.left, val);
+    else if(root.data<val)
+      root.right = create(root.right, val);
+    return root;
+  }
+  int minElement(Node root){
+    int min = root.data;
+    while(root.left!=null){
+      root = root.left;
+      min = root.data;
+    }
+    return min;
+  }
+  int maxElement(Node root){
+    int max = root.data;
+    while(root.right!=null){
+      root = root.right;
+      max  = root.data;
+    }
+    return max;
+  }
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    bst tree = new bst();
+    int n, num;
+    n = scn.nextInt();
+    for(int i = 0; i<n; i++){
+      num = scn.nextInt();
+      tree.root = tree.create(tree.root, num);
+    }
+    System.out.println(tree.minElement(tree.root));
+    System.out.println(tree.maxElement(tree.root));
+}}
