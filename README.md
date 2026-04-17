@@ -102,4 +102,5 @@
 **BINARY SEARCH TREE (BST)**
 
 * Traversals
-* Find Minimum and Maximum Element 
+* Find Minimum and Maximum Element
+* Search Element
