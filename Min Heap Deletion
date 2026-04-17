@@ -1,0 +1,58 @@
+import java.util.*;
+class MinHeap{
+  int arr[];
+  int size;
+  MinHeap(int n){
+    arr = new int[n];
+    size = n;
+  }
+  void heapifyup(int index){
+    int parentindex = (index - 1)/2;
+    while(index > 0 && arr[parentindex] > arr[index]){
+      int temp = arr[parentindex];
+      arr[parentindex] = arr[index];
+      arr[index] = temp;
+      index = parentindex;
+      parentindex = (index - 1) / 2;
+    }
+  }
+  void create(int num, int index){
+    arr[index] = num;
+    heapifyup(index);
+  }
+  void deletion(){
+    while(size!=0){
+      System.out.print(arr[0]+" ");
+      arr[0] = arr[size-1];
+      size--;
+      heapifydown(0);
+    }
+  }
+  void heapifydown(int index){
+    int left = (2*index)+1;
+    int right = (2*index)+2;
+    int small = index;
+    if(left<size && arr[left] < arr[small])
+      small = left;
+    if(right<size && arr[right]<arr[small])
+      small = right;
+    if(index!=small){
+      int temp = arr[index];
+      arr[index] = arr[small];
+      arr[small] = temp;
+      heapifydown(small);
+    }
+  }
+}
+public class Main{
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();
+    MinHeap min = new MinHeap(n);
+    for(int i = 0; i<n; i++){
+      int num = scn.nextInt();
+      min.create(num, i);
+    }
+    min.deletion();
+  }
+}
